@@ -1,0 +1,1 @@
+var freinds = x; 
