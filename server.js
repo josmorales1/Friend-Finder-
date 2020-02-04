@@ -1,16 +1,18 @@
-var expresss = require('express');
+var express = require("express");
+var path = require("path");
+var app = express();
 
-var app = expresss();
-var PORT = proccess.env.PORT;
 
-app.use(expresss.urlencoded({ extended: true }));
-app.use(expresss.json());
+var PORT = process.env.PORT || 8080;
 
-// adding the routes 
-require("./apps/Rounting/apiRoutes")(app);
-require("./apps/Rounting/htmlRoutes")(app);
 
-// server begins to listen 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+require("./app/rounting/apiRoutes")(app);
+require("./app/rounting/htmlRoutes")(app);
+
 app.listen(PORT, function () {
-    console.log("app is listening on PORT" + PORT)
+    console.log("App listening on PORT: " + PORT);
 });
+
